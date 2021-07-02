@@ -1,0 +1,26 @@
+version: '3'
+services:
+    back-end:
+        build: 
+            context: ./phone-numbers-viewer-back-service
+        container_name: phone-numbers-viewer-back-end
+        image: phone-numbers-viewer-back-end
+        restart: unless-stopped
+        ports:
+            - 8080:8080
+        networks:
+            - local-network
+    front-end:
+        build:
+            context: ./phone-numbers-viewer-front-service
+            dockerfile: Dockerfile
+        image: phone-numbers-viewer-front-end
+        container_name: phone-numbers-viewer-front-end
+        restart: unless-stopped
+        ports: 
+            - 4200:80
+        networks:
+            - local-network
+networks:
+    local-network:
+        driver: bridge

@@ -1,0 +1,44 @@
+<div>
+  <h1>Customers List</h1>
+  <div class="row" style="margin-left: 8%">
+
+  <div class="justify-content" style="margin-top: 50px; margin-left: 50px">
+    <label class="col-12 control-label c-sb text-muted">Status</label>
+    <ngx-select-dropdown
+      (change)="changeStatus($event)"
+      [multiple]="false"
+      [(value)]="selectedStatus"
+      [options]="statuses"
+      [config]="{search: false}"></ngx-select-dropdown>
+  </div>
+  <div class="justify-content" style="margin-top: 50px; margin-left: 50px">
+    <label class="col-12 control-label c-sb text-muted">Search By Country Name</label>
+    <label>
+      <input type="text" (change)="this.changeCountryName()" class="form-control" name="name" [(ngModel)]="this.selectedCountryName">
+    </label></div>
+  </div>
+<table class="table table-bordered ">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">name</th>
+    <th scope="col">phone</th>
+    <th scope="col">country</th>
+    <th scope="col">country-code</th>
+    <th scope="col">validity</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of customers">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.phone}}</td>
+    <td>{{item.valid ? item.country.name : "-"}}</td>
+    <td>{{item.valid ? item.country.code : "-"}}</td>
+    <td>{{item.valid}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+

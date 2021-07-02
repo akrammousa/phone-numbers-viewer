@@ -1,0 +1,17 @@
+h1 {
+  color: darkgray;
+  padding: 20px;
+  font-weight: bolder;
+  font-family: -apple-system;
+  margin-left: 160px;
+}
+
+td {
+  text-align: left;
+  line-height: 50px;
+}
+
+.table {
+  width: 80%;
+  margin: auto;
+}
